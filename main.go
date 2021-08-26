@@ -159,7 +159,7 @@ func main()  {
 	http.Handle("/graphql", h)
 
 	// and serve!
-	http.ListenAndServe(":4000", nil)
+	log.Fatal(http.ListenAndServe(":4000", nil))
 
 
 
