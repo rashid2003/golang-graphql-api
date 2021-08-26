@@ -157,8 +157,6 @@ func main()  {
 
 	// serve a GraphQL endpoint at `/graphql`
 	http.Handle("/graphql", h)
-	http.Header{}.Set("Access-Control-Allow-Origin", "*")
-	http.Header{}.Set("Access-Control-Allow-Headers","Content-Type,access-control-allow-origin, access-control-allow-headers")
 
 	// and serve!
 	http.ListenAndServe(":80", nil)
