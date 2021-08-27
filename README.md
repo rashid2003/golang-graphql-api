@@ -9,10 +9,10 @@ GraphQL Playground is also available Just visit https://localhost:4000/graphql
 
 ## Screen Shots
 ### Posts API
-![](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\posts.gif)
+![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\posts.gif)
 ### Comments API
-![](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\comments.gif)
+![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\comments.gif)
 ### Specific Post API
-![](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\post.gif)
+![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\post.gif)
 ### Search for specific comment (by Name, Email, Body)
-![](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\comment.gif)
+![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\comment.gif)
