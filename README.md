@@ -9,10 +9,10 @@ GraphQL Playground is also available Just visit https://localhost:4000/graphql
 
 ## Screen Shots
 ### Posts API
-![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\posts.gif)
+![](https://github.com/rashid2003/golang-graphql-api/blob/main/screens/posts.gif)
 ### Comments API
-![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\comments.gif)
+![](https://github.com/rashid2003/golang-graphql-api/blob/main/screens/comments.gif)
 ### Specific Post API
-![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\post.gif)
+![](https://github.com/rashid2003/golang-graphql-api/blob/main/screens/post.gif)
 ### Search for specific comment (by Name, Email, Body)
-![image](C:\Users\samavitech02\GolandProjects\simpleGraphql\screens\comment.gif)
+![](https://github.com/rashid2003/golang-graphql-api/blob/main/screens/comment.gif)
