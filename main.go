@@ -9,8 +9,10 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
+// Post Structure
 type Post struct {
 	UserID int `json:"userId"`
 	ID int `json:"id"`
@@ -18,16 +20,16 @@ type Post struct {
 	Body string `json:"body"`
 }
 
+// Comment Structure
 type Comment struct {
-	PserID int `json:"postId"`
+	PostID int `json:"postId"`
 	ID int `json:"id"`
 	Name string `json:"name"`
 	Email string `json:"email"`
 	Body string `json:"body"`
 }
 
-
-
+// Consume all Posts from jsonplaceholder
 func getPosts() []Post {
 	response, err := http.Get("https://jsonplaceholder.typicode.com/posts")
 	if err != nil {
@@ -45,6 +47,8 @@ func getPosts() []Post {
 
 	return responseObject
 }
+
+// Consume Comments
 func getComments() []Comment {
 	response, err := http.Get("https://jsonplaceholder.typicode.com/comments")
 	if err != nil {
@@ -63,7 +67,8 @@ func getComments() []Comment {
 	return responseObject
 }
 
-func main()  {
+// Setup Graphql Schema
+func setupGraphql() graphql.Schema {
 	posts := getPosts()
 	comments := getComments()
 	var postType = graphql.NewObject(
@@ -134,6 +139,31 @@ func main()  {
 				return posts, nil
 			},
 		},
+
+		"comment": &graphql.Field{
+			Type:        commentType,
+			Description: "Search for a comment",
+			Args: graphql.FieldConfigArgument{
+				"search": &graphql.ArgumentConfig{
+					Type: graphql.String,
+				},
+			},
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				search, ok := p.Args["search"].(string)
+				if ok {
+					for _, comment := range comments {
+						if strings.Contains(comment.Body, search) {
+							return comment, nil
+						} else if strings.Contains(comment.Email, search) {
+							return comment, nil
+						} else if comment.Name == search {
+							return comment, nil
+						}
+					}
+				}
+				return nil, nil
+			},
+		},
 		"comments": &graphql.Field{
 			Type: graphql.NewList(commentType),
 			Description: "Get All Comments",
@@ -149,10 +179,20 @@ func main()  {
 	if err != nil {
 		log.Fatalf("Failed to create new GraphQl Schema. err %v", err)
 	}
+	return schema
+}
 
+
+func main()  {
+
+	schema := setupGraphql()
+
+	// enable or disable GraphiQL or Graphql Playground
 	h := gqlhandler.New(&gqlhandler.Config{
 		Schema: &schema,
 		Pretty: true,
+		GraphiQL: false,
+		Playground: true,
 	})
 
 	// serve a GraphQL endpoint at `/graphql`
@@ -160,7 +200,5 @@ func main()  {
 
 	// and serve!
 	log.Fatal(http.ListenAndServe(":4000", nil))
-
-
 
 }

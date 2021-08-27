@@ -1,3 +1,6 @@
+github.com/carlosstrand/graphql-pagination-go v0.1.0 h1:wieP2EBcMZk6ugjqYlG+HgLzLgJuM1OcJ0WjOihd2Sk=
+github.com/carlosstrand/graphql-pagination-go v0.1.0/go.mod h1:Rack9+1nMRR3LrS/RDtweOz3aBe18Ayr3R7o8Jz0LTg=
+github.com/graphql-go/graphql v0.7.8/go.mod h1:k6yrAYQaSP59DC5UVxbgxESlmVyojThKdORUqGDGmrI=
 github.com/graphql-go/graphql v0.7.9 h1:5Va/Rt4l5g3YjwDnid3vFfn43faaQBq7rMcIZ0VnV34=
 github.com/graphql-go/graphql v0.7.9/go.mod h1:k6yrAYQaSP59DC5UVxbgxESlmVyojThKdORUqGDGmrI=
 github.com/graphql-go/graphql-go-handler v0.2.3 h1:REPF3uupSxo7z7R1rb3VlVTtiCXOSGOSJ1DybyVhOnw=
